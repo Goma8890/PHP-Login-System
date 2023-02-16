@@ -23,7 +23,7 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-stacked-text">Email</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="form-stacked-text" type="email" required='required' placeholder="barata@hotmail.com">
+                        <input class="uk-input" id="form-stacked-text" type="email" required='required' placeholder="email@hotmail.com">
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-default" type="submit">Radio</button>
+                    <button class="uk-button uk-button-default" type="submit">Submit</button>
                 </div>
 
             </form>
