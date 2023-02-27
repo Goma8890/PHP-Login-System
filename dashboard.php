@@ -9,6 +9,19 @@ require_once "inc/config.php";
 // exit;
 
 ForceLogin();
+$user_id = $_SESSION['user_id'];
+
+$getUserInfo = $con->prepare('SELECT email, reg_time FROM users WHERE user_id = :user_id LIMIT 1');
+$getUserInfo->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+$getUserInfo->execute();
+
+if ($getUserInfo->rowCount() == 1) {
+    # code...
+    $User = $getUserInfo->fetch(PDO::FETCH_ASSOC);
+} else {
+    header('Location: /logout.php');
+    exit;
+}
 
 ?>
 
@@ -30,7 +43,9 @@ ForceLogin();
 <body>
 
     <div class="uk-section uk-container">
-        Dashboard here; you are signed in as user: <?php echo $_SESSION['user_id']; ?>
+        <h2>Dashboard</h2>
+        <p>Hello <?php echo $User->email; ?>, you registered at <?php echo $User->reg_time; ?></p>
+        <p><a href="/logout.php">Logout</a></p>
     </div>
 
     <?php require_once "inc/footer.php"; ?>
