@@ -52,6 +52,7 @@ $(document)
 
 	return false;
 })
+
 // 
 .on("submit", "form.js-login", function(event) {
 	event.preventDefault();
