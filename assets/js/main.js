@@ -1,12 +1,8 @@
-// alert("test");
-
 $(document)
-.on("submit", "form.js-register", function (event) {
-    event.preventDefault();
+.on("submit", "form.js-register, form.js-login", function(event) {
+	event.preventDefault();
 
-    // alert("Form was submitted");
-
-    var _form = $(this);
+	var _form = $(this);
 	var _error = $(".js-error", _form);
 
 	var dataObj = {
@@ -29,7 +25,7 @@ $(document)
 	// Assuming the code gets this far, we can start the ajax process
 	_error.hide();
 
-    $.ajax({
+	$.ajax({
 		type: 'POST',
 		url: '/ajax/register.php',
 		data: dataObj,
@@ -54,10 +50,8 @@ $(document)
 		console.log('Always');
 	})
 
-    return false;
-    
+	return false;
 })
-
 // 
 .on("submit", "form.js-login", function(event) {
 	event.preventDefault();
@@ -112,3 +106,4 @@ $(document)
 
 	return false;
 })
+
