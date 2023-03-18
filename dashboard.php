@@ -8,20 +8,20 @@ require_once "inc/config.php";
 // echo $_SESSION['user_id'] . ' is your user id';
 // exit;
 
-ForceLogin();
-$user_id = $_SESSION['user_id'];
+Page::ForceLogin();
+$User = new User($_SESSION['user_id']);
 
-$getUserInfo = $con->prepare('SELECT email, reg_time FROM users WHERE user_id = :user_id LIMIT 1');
-$getUserInfo->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-$getUserInfo->execute();
+// $getUserInfo = $con->prepare('SELECT email, reg_time FROM users WHERE user_id = :user_id LIMIT 1');
+// $getUserInfo->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+// $getUserInfo->execute();
 
-if ($getUserInfo->rowCount() == 1) {
-    # code...
-    $User = $getUserInfo->fetch(PDO::FETCH_ASSOC);
-} else {
-    header('Location: /logout.php');
-    exit;
-}
+// if ($getUserInfo->rowCount() == 1) {
+//     # code...
+//     $User = $getUserInfo->fetch(PDO::FETCH_ASSOC);
+// } else {
+//     header('Location: /logout.php');
+//     exit;
+// }
 
 ?>
 

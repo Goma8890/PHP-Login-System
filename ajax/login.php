@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// $findUser->bindParam(':email', $email, PDO::PARAM_STR);
 	// $findUser->execute();
 
-	$user_found = FindUser($con, $email, true);
+	$user_found = User::Find($con, $email, true);
 
 	if (!$user_found) {
 		// User exists, try and sign them in
